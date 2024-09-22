@@ -2,17 +2,17 @@
 
 import { Command } from "./Command";
 import * as readline from "readline";
-import { ScheduleManager } from "../../ScheduleManager";
+import { IScheduleManager } from "../../schedule/ScheduleManagerBase";
 import { Logger } from "../../Logger";
 
 export class MarkTaskAsCompletedCommand implements Command {
   private rl: readline.Interface;
-  private scheduleManager: ScheduleManager;
+  private scheduleManager: IScheduleManager;
   private callback: () => void;
 
   constructor(
     rl: readline.Interface,
-    scheduleManager: ScheduleManager,
+    scheduleManager: IScheduleManager,
     callback: () => void
   ) {
     this.rl = rl;

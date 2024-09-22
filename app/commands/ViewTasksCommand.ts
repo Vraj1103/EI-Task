@@ -1,14 +1,14 @@
 // app/commands/ViewTasksCommand.ts
 
 import { Command } from "./Command";
-import { ScheduleManager } from "../../ScheduleManager";
+import { IScheduleManager } from "../../schedule/ScheduleManagerBase";
 import { InputParser } from "../utils/InputParser";
 
 export class ViewTasksCommand implements Command {
-  private scheduleManager: ScheduleManager;
+  private scheduleManager: IScheduleManager;
   private callback: () => void;
 
-  constructor(scheduleManager: ScheduleManager, callback: () => void) {
+  constructor(scheduleManager: IScheduleManager, callback: () => void) {
     this.scheduleManager = scheduleManager;
     this.callback = callback;
   }
