@@ -1,4 +1,3 @@
-// app/Application.ts
 import * as readline from "readline";
 import { ScheduleManager } from "../schedule/ScheduleManager";
 import { IScheduleManager } from "../schedule/ScheduleManagerBase";

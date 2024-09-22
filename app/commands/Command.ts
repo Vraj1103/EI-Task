@@ -1,5 +1,3 @@
-// app/commands/Command.ts
-
 /**
  * Interface for command execution.
  */

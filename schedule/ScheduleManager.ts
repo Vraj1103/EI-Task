@@ -1,5 +1,3 @@
-// schedule/ScheduleManager.ts
-
 import { Task, PriorityLevel } from "../Task";
 import { Observer } from "../Observer";
 import { Logger } from "../Logger";

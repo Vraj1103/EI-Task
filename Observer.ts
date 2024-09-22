@@ -1,5 +1,3 @@
-// Observer.ts
-
 /**
  * Observer interface for implementing the Observer Pattern.
  */

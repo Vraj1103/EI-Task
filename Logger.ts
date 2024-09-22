@@ -1,5 +1,3 @@
-// Logger.ts
-
 import * as fs from "fs";
 
 /**

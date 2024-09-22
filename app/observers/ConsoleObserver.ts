@@ -1,5 +1,3 @@
-// app/observers/ConsoleObserver.ts
-
 import { Observer } from "../../Observer";
 
 /**

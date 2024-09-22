@@ -1,5 +1,3 @@
-// schedule/TaskConflictChecker.ts
-
 import { Task } from "../Task";
 import { ITaskConflictChecker } from "./ScheduleManagerBase";
 

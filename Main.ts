@@ -1,5 +1,3 @@
-// Main.ts
-
 import { Application } from "./app/Application";
 
 const app = new Application();

@@ -1,5 +1,3 @@
-// app/commands/ViewTasksByPriorityCommand.ts
-
 import { Command } from "./Command";
 import * as readline from "readline";
 import { IScheduleManager } from "../../schedule/ScheduleManagerBase";
@@ -30,7 +28,11 @@ export class ViewTasksByPriorityCommand implements Command {
           const tasks = this.scheduleManager.getTasksByPriority(priority);
           if (tasks.length === 0) {
             console.log(`No tasks with priority ${priority}.`);
+            Logger.logInfo(
+              `Viewed tasks by priority: No tasks with priority ${priority}.`
+            );
           } else {
+            console.log(`Viewing tasks with priority ${priority}:`);
             for (let task of tasks) {
               console.log(
                 `${InputParser.formatTime(
@@ -40,6 +42,9 @@ export class ViewTasksByPriorityCommand implements Command {
                 } [${task.priority}]${task.isCompleted ? " (Completed)" : ""}`
               );
             }
+            Logger.logInfo(
+              `Viewed tasks with priority ${priority}. Total tasks: ${tasks.length}.`
+            );
           }
         } catch (error) {
           if (error instanceof Error) {

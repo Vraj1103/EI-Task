@@ -1,5 +1,3 @@
-// app/commands/EditTaskCommand.ts
-
 import { Command } from "./Command";
 import * as readline from "readline";
 import { IScheduleManager } from "../../schedule/ScheduleManagerBase";

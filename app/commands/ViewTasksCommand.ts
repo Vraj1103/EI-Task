@@ -1,8 +1,7 @@
-// app/commands/ViewTasksCommand.ts
-
 import { Command } from "./Command";
 import { IScheduleManager } from "../../schedule/ScheduleManagerBase";
 import { InputParser } from "../utils/InputParser";
+import { Logger } from "../../Logger";
 
 export class ViewTasksCommand implements Command {
   private scheduleManager: IScheduleManager;
@@ -17,7 +16,9 @@ export class ViewTasksCommand implements Command {
     const tasks = this.scheduleManager.viewTasks();
     if (tasks.length === 0) {
       console.log("No tasks scheduled for the day.");
+      Logger.logInfo("Viewed tasks: No tasks scheduled for the day.");
     } else {
+      console.log("Viewing all tasks:");
       for (let task of tasks) {
         console.log(
           `${InputParser.formatTime(task.startTime)} - ${InputParser.formatTime(
@@ -27,6 +28,7 @@ export class ViewTasksCommand implements Command {
           }`
         );
       }
+      Logger.logInfo(`Viewed all tasks. Total tasks: ${tasks.length}.`);
     }
     this.callback();
   }
