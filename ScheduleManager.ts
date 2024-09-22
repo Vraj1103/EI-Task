@@ -38,8 +38,8 @@ export class ScheduleManager implements Subject {
         .map((t) => `"${t.description}"`)
         .join(", ");
       const message = `Error: Task conflicts with existing task(s): ${conflictingDescriptions}.`;
-      this.notifyObservers(message);
-      Logger.logError(message);
+      //   this.notifyObservers(message);
+      //   Logger.logError(message);
       throw new Error(message);
     } else {
       this.tasks.push(task);

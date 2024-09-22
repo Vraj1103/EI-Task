@@ -16,6 +16,7 @@ export class Logger {
 
   public static logError(message: string): void {
     // Log to file instead of console.error
+    console.error(`ERROR: ${message}`);
     this.writeToLog(`ERROR: ${message}`);
   }
 
