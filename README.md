@@ -1,3 +1,46 @@
+# Task 1: Implementing and Demonstrating Software Design Patterns in TypeScript
+
+## Table of Contents
+
+- [Introduction](#introduction)
+- [Objectives](#objectives)
+- [Project Structure](#project-structure)
+- [Design Patterns Implemented](#design-patterns-implemented)
+  - [Behavioral Patterns](#behavioral-patterns)
+    - [Observer Pattern](#observer-pattern)
+    - [Strategy Pattern](#strategy-pattern)
+  - [Creational Patterns](#creational-patterns)
+    - [Singleton Pattern](#singleton-pattern)
+    - [Factory Pattern](#factory-pattern)
+  - [Structural Patterns](#structural-patterns)
+    - [Adapter Pattern](#adapter-pattern)
+    - [Decorator Pattern](#decorator-pattern)
+- [Implementation Details](#implementation-details)
+  - [Logging Mechanism](#logging-mechanism)
+  - [Exception Handling](#exception-handling)
+  - [Best Practices](#best-practices)
+- [Setup Instructions](#setup-instructions)
+- [Usage](#usage)
+- [Conclusion](#conclusion)
+
+---
+
+## Introduction
+
+In modern software development, adhering to design patterns is crucial for creating scalable, maintainable, and efficient applications. This project serves as a comprehensive demonstration of various **software design patterns** implemented in **TypeScript**. By organizing the code according to global best practices and standards, the project showcases how different design patterns can be effectively utilized to solve common software engineering problems.
+
+## Objectives
+
+- **Demonstrate Understanding:** Showcase proficiency in implementing behavioral, creational, and structural design patterns.
+- **Adhere to Best Practices:** Ensure the codebase is well-organized, readable, and maintainable by following global best practices.
+- **Implement Robust Mechanisms:** Incorporate logging, exception handling, and other defensive programming techniques to enhance reliability.
+- **Optimize Performance:** Ensure the application is highly optimized for performance, suitable for long-running processes.
+- **Facilitate Scalability:** Structure the project to allow easy addition of new features and patterns in the future.
+
+## Project Structure
+
+The project is meticulously organized to separate concerns and enhance readability. Each design pattern resides in its dedicated directory, further categorized by its type (behavioral, creational, structural). Within each pattern's directory, individual files represent classes, interfaces, and specific use cases.
+
 ### Key Highlights:
 
 - **Separation of Concerns:** Each design pattern is isolated within its own directory, preventing interdependencies and enhancing modularity.
@@ -156,4 +199,124 @@ const logger = createLogger({
 });
 
 export default logger;
+```
+
+### Exception Handling
+
+A custom exception class, (`AppException`), is created to provide consistent error handling across the application. This class extends the built-in (`Error`) class, allowing for additional properties like (`cause`).
+
+```typescript
+// src/utils/Exception.ts
+export class AppException extends Error {
+  public readonly name: string;
+  public readonly message: string;
+  public readonly cause?: Error;
+
+  constructor(message: string, cause?: Error) {
+    super(message);
+    this.name = this.constructor.name;
+    this.message = message;
+    this.cause = cause;
+    Error.captureStackTrace(this, this.constructor);
+  }
+}
+```
+
+## Setup Instructions
+
+1.  **Prerequisites:**
+
+```bash
+npm install -g typescript
+```
+
+2. **Project Initialization:**
+
+```bash
+git clone <https://github.com/Vraj1103/EI-Task.git>
+cd task-1
+npm install
+```
+
+3. **Run the project**
+
+```bash
+npm run build
+npm start
+```
+
+## Output
+
+## The output will be displayed in the console, showcasing the execution of various design patterns and their use cases.
+
+```json
+{"level":"info","message":"Starting Design Patterns Project","timestamp":"2024-09-23 21:14:22"}
+{"level":"info","message":"Executing Observer Use Cases","timestamp":"2024-09-23 21:14:22"}
+{"level":"info","message":"ConcreteObserverA (Subscriber A) created.","timestamp":"2024-09-23 21:14:22"}
+{"level":"info","message":"ConcreteObserverB (Subscriber B) created.","timestamp":"2024-09-23 21:14:22"}
+{"level":"info","message":"Observer attached.","timestamp":"2024-09-23 21:14:22"}
+{"level":"info","message":"Observer attached.","timestamp":"2024-09-23 21:14:22"}
+{"level":"info","message":"Subject state changed to: Breaking News: Observer Pattern Implemented Successfully!","timestamp":"2024-09-23 21:14:22"}
+{"level":"info","message":"Notifying observers...","timestamp":"2024-09-23 21:14:22"}
+[Subscriber A] Received update: Breaking News: Observer Pattern Implemented Successfully!
+{"level":"info","message":"ConcreteObserverA (Subscriber A) received message: Breaking News: Observer Pattern Implemented Successfully!","timestamp":"2024-09-23 21:14:22"}
+[Subscriber A] Displaying message: Breaking News: Observer Pattern Implemented Successfully!
+[Subscriber B] Logging update: Breaking News: Observer Pattern Implemented Successfully!
+{"level":"info","message":"ConcreteObserverB (Subscriber B) logged message: Breaking News: Observer Pattern Implemented Successfully!","timestamp":"2024-09-23 21:14:22"}
+[Subscriber B] Logged message: Breaking News: Observer Pattern Implemented Successfully!
+{"level":"info","message":"ConcreteObserverA (Trader Joe) created.","timestamp":"2024-09-23 21:14:22"}
+{"level":"info","message":"ConcreteObserverB (Analyst Jane) created.","timestamp":"2024-09-23 21:14:22"}
+{"level":"info","message":"Observer attached.","timestamp":"2024-09-23 21:14:22"}
+{"level":"info","message":"Observer attached.","timestamp":"2024-09-23 21:14:22"}
+{"level":"info","message":"Subject state changed to: Stock Update: AAPL is up by 5%","timestamp":"2024-09-23 21:14:22"}
+{"level":"info","message":"Notifying observers...","timestamp":"2024-09-23 21:14:22"}
+[Trader Joe] Received update: Stock Update: AAPL is up by 5%
+{"level":"info","message":"ConcreteObserverA (Trader Joe) received message: Stock Update: AAPL is up by 5%","timestamp":"2024-09-23 21:14:22"}
+[Trader Joe] Displaying message: Stock Update: AAPL is up by 5%
+[Analyst Jane] Logging update: Stock Update: AAPL is up by 5%
+{"level":"info","message":"ConcreteObserverB (Analyst Jane) logged message: Stock Update: AAPL is up by 5%","timestamp":"2024-09-23 21:14:22"}
+[Analyst Jane] Logged message: Stock Update: AAPL is up by 5%
+{"level":"info","message":"Executing Strategy Use Cases","timestamp":"2024-09-23 21:14:22"}
+{"level":"info","message":"Strategy set in context.","timestamp":"2024-09-23 21:14:22"}
+{"level":"info","message":"Executing strategy...","timestamp":"2024-09-23 21:14:22"}
+Addition Result: 8
+{"level":"info","message":"Strategy updated in context.","timestamp":"2024-09-23 21:14:22"}
+{"level":"info","message":"Executing strategy...","timestamp":"2024-09-23 21:14:22"}
+Multiplication Result: 15
+{"level":"info","message":"Payment strategy set.","timestamp":"2024-09-23 21:14:22"}
+{"level":"info","message":"Executing payment of 100...","timestamp":"2024-09-23 21:14:22"}
+Paid 100 using Credit Card.
+{"level":"info","message":"Payment of 100 processed via Credit Card.","timestamp":"2024-09-23 21:14:22"}
+{"level":"info","message":"Payment strategy updated.","timestamp":"2024-09-23 21:14:22"}
+{"level":"info","message":"Executing payment of 200...","timestamp":"2024-09-23 21:14:22"}
+Paid 200 using PayPal.
+{"level":"info","message":"Payment of 200 processed via PayPal.","timestamp":"2024-09-23 21:14:22"}
+{"level":"info","message":"Executing Singleton Use Cases","timestamp":"2024-09-23 21:14:22"}
+{"level":"info","message":"Singleton instance created.","timestamp":"2024-09-23 21:14:22"}
+Config1 Data: Initial Data
+{"level":"info","message":"Singleton data updated to: Updated Config Data","timestamp":"2024-09-23 21:14:22"}
+Config1 Data after update: Updated Config Data
+{"level":"info","message":"Singleton data updated to: Logger Initialized","timestamp":"2024-09-23 21:14:22"}
+Logger2 Data: Logger Initialized
+{"level":"info","message":"Executing Factory Use Cases","timestamp":"2024-09-23 21:14:22"}
+{"level":"info","message":"Creating ConcreteProductA","timestamp":"2024-09-23 21:14:22"}
+Using ConcreteProductA
+{"level":"info","message":"Creating ConcreteProductB","timestamp":"2024-09-23 21:14:22"}
+Using ConcreteProductB
+{"level":"info","message":"Creating ConcreteProductA","timestamp":"2024-09-23 21:14:22"}
+Using ConcreteProductA
+{"level":"info","message":"Creating ConcreteProductB","timestamp":"2024-09-23 21:14:22"}
+Using ConcreteProductB
+{"level":"error","message":"Unknown product type: C","timestamp":"2024-09-23 21:14:22"}
+Error: Unknown product type: C
+{"level":"info","message":"Executing Adapter Use Cases","timestamp":"2024-09-23 21:14:22"}
+Adaptee: Specific request.
+Processed payment of 250 via PayPal.
+{"level":"info","message":"Executing Decorator Use Cases","timestamp":"2024-09-23 21:14:22"}
+Plain Coffee: ConcreteComponent
+With Milk: ConcreteDecoratorA(ConcreteComponent)
+With Milk and Sugar: ConcreteDecoratorB(ConcreteDecoratorA(ConcreteComponent))
+Original Message: Hello, Decorator Pattern!
+UpperCase Message: HELLO, DECORATOR PATTERN!
+{"level":"info","message":"Design Patterns Project Completed Successfully","timestamp":"2024-09-23 21:14:22"}
 ```
