@@ -412,6 +412,7 @@ Follow these steps to set up and run the Astronaut Daily Schedule Organizer loca
 
    ```bash
    git clone https://github.com/Vraj1103/EI-Task.git
+   cd task-2
    ```
 
 2. **Install Dependencies: Ensure Node.js is installed, then run:**
@@ -429,7 +430,6 @@ tsc
 4. **Run the Application: Once compiled, you can run the app:**
 
 ```bash
-cd task-2
 node dist/Main.js
 ```
 
