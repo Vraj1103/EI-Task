@@ -234,6 +234,7 @@ npm install -g typescript
 git clone https://github.com/Vraj1103/EI-Task.git
 cd task-1
 npm install
+npx tsc --init
 ```
 
 3. **Run the project**
@@ -428,6 +429,7 @@ tsc
 4. **Run the Application: Once compiled, you can run the app:**
 
 ```bash
+cd task-2
 node dist/Main.js
 ```
 
