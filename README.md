@@ -233,7 +233,7 @@ npm install -g typescript
 2. **Project Initialization:**
 
 ```bash
-git clone <https://github.com/Vraj1103/EI-Task.git>
+git clone https://github.com/Vraj1103/EI-Task.git
 cd task-1
 npm install
 ```
