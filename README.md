@@ -18,10 +18,8 @@
 - [Implementation Details](#implementation-details)
   - [Logging Mechanism](#logging-mechanism)
   - [Exception Handling](#exception-handling)
-  - [Best Practices](#best-practices)
 - [Setup Instructions](#setup-instructions)
-- [Usage](#usage)
-- [Conclusion](#conclusion)
+- [Task - 2](#Task-2)
 
 ---
 
@@ -320,3 +318,117 @@ Original Message: Hello, Decorator Pattern!
 UpperCase Message: HELLO, DECORATOR PATTERN!
 {"level":"info","message":"Design Patterns Project Completed Successfully","timestamp":"2024-09-23 21:14:22"}
 ```
+
+# Task 2: Astronaut Daily Schedule Organizer
+
+## Table of Contents
+
+1. [Introduction](#introduction)
+2. [Project Overview](#project-overview)
+3. [Key Functionalities](#key-functionalities)
+4. [Logging Functionality](#logging-functionality)
+5. [Thought Process](#thought-process)
+6. [Project Setup Guide](#project-setup-guide)
+7. [Conclusion](#conclusion)
+
+---
+
+## 1. Introduction
+
+This project provides a command-line application that helps astronauts organize their daily tasks. The main objective of the project is to manage tasks such as adding, editing, viewing, and removing tasks while preventing scheduling conflicts. This document explains the core functionalities, design decisions, and setup guide for running the project locally.
+
+---
+
+## 2. Project Overview
+
+The Astronaut Daily Schedule Organizer is a task management tool that allows users to manage daily schedules. The system ensures that tasks do not overlap in time and provides features like viewing tasks based on priority levels, marking tasks as completed, and logging actions. The application leverages design patterns such as Singleton, Command, and Observer to ensure a modular and maintainable codebase.
+
+---
+
+## 3. Key Functionalities
+
+### Add Task
+
+- **Description**: Users can add a new task by providing a description, start time, end time, and priority level.
+- **Conflict Prevention**: The system checks for conflicts and prevents adding tasks that overlap with existing tasks.
+
+### Remove Task
+
+- **Description**: Users can remove a task from their schedule by providing the task's description.
+
+### Edit Task
+
+- **Description**: Users can modify the details of an existing task. The system ensures that no task conflicts arise after the update.
+
+### Mark Task as Completed
+
+- **Description**: Users can mark tasks as completed, updating the task's status in the schedule.
+
+### View Tasks
+
+- **Description**: Users can view all tasks sorted by their start time.
+
+### View Tasks by Priority
+
+- **Description**: Users can filter tasks based on their priority (Low, Medium, High) and view them accordingly.
+
+---
+
+## 4. Logging Functionality
+
+The application includes logging capabilities for tracking user actions and system events. The logger records:
+
+- **Info Logs**: Successful operations such as adding, editing, or removing tasks.
+- **Error Logs**: Issues such as scheduling conflicts, invalid time inputs, or attempts to edit or remove non-existent tasks.
+
+All logs are saved to a file (`application.log`) for auditing and debugging purposes. This helps track user activity and identify issues with the system.
+
+---
+
+## 5. Thought Process
+
+### Design Patterns
+
+- **Singleton Pattern**: Ensures that only one instance of the `ScheduleManager` exists, centralizing task management and preventing conflicts.
+- **Command Pattern**: Each user action (e.g., adding, removing, editing tasks) is encapsulated into its own command class, making it easier to add or modify functionalities.
+- **Observer Pattern**: Notifies observers (such as the `ConsoleObserver`) when significant events occur, such as when a task is added or removed, promoting decoupled communication.
+
+### Separation of Concerns
+
+Each file or module in the application has a single responsibility, enhancing the overall maintainability and readability of the codebase. This modular design ensures that each part of the system is easy to modify or extend in the future.
+
+### Conflict Handling
+
+The application strictly checks for overlapping tasks. Tasks that have start and end times that overlap with existing tasks are prevented from being added or edited. This ensures that no astronaut has conflicting tasks in their schedule.
+
+---
+
+## 6. Project Setup Guide
+
+Follow these steps to set up and run the Astronaut Daily Schedule Organizer locally:
+
+1. **Clone the Repository**: Clone the repository or download the source code.
+
+   ```bash
+   git clone https://github.com/Vraj1103/EI-Task.git
+   ```
+
+2. **Install Dependencies: Ensure Node.js is installed, then run:**
+
+```bash
+npm install
+```
+
+3. **Compile TypeScript: To compile the TypeScript code to JavaScript, run:**
+
+```bash
+tsc
+```
+
+4. **Run the Application: Once compiled, you can run the app:**
+
+```bash
+node dist/Main.js
+```
+
+5. **Follow the Prompts: Use the command-line interface to add, edit, or remove tasks.**
